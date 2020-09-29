@@ -20,7 +20,7 @@ export class FeatureCreateComponent implements OnInit, OnDestroy {
 
   private mode = 'create';
   private featureId: string;
-  private authStatusSub: Subscription;
+  
   feature: Feature;
   isLoading = false;
 
@@ -45,6 +45,8 @@ export class FeatureCreateComponent implements OnInit, OnDestroy {
           this.featureId = paramMap.get('featureId');
           //spinner
           this.isLoading = true;
+          //alert('A');
+          
           this.featuresService.getFeature(Number(this.featureId)).subscribe(featureData => {
               this.isLoading = false;
               this.feature =
@@ -112,6 +114,6 @@ export class FeatureCreateComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.authStatusSub.unsubscribe();
+    
   }
 }

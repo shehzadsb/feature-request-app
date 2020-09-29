@@ -33,7 +33,7 @@ import {FeatureListComponent} from './features/feature-list/feature-list.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
