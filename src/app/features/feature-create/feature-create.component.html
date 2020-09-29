@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <form (submit)="onSaveFeature(featureForm)" #featureForm="ngForm" *ngIf="!isLoading" >
+    <mat-form-field>
+      <input
+        matInput type="text"
+        name="title"
+        required
+        minlength="3"
+        [ngModel]="feature?.title"
+        #title="ngModel"
+        placeholder="Feature Title">
+
+      <mat-error *ngIf="title.invalid">Please enter a feature title</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput rows="6"
+        name="description"
+        required
+        [ngModel]="feature?.description"
+        #description="ngModel"
+        placeholder="Description">
+      </textarea>
+
+      <mat-error *ngIf="description.invalid">Please enter a description</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save Feature</button>  <!-- event binding -->
+
+  </form>
+
+</mat-card>
